@@ -16,12 +16,12 @@ class HomeFragment : Fragment() {
         //val materialCalendarView = view?.findViewById<MaterialCalendarView>(R.id.calendarView)
         val materialCalendarView = inflater.inflate(R.layout.fragment_home, container, false)
         Log.d("ADebugTag", materialCalendarView.toString())
-        SetMonthbarVisible(materialCalendarView, false)
+        setMonthBarVisible(materialCalendarView, false)
 
         return materialCalendarView
     }
 
-    fun SetMonthbarVisible(view: View, visible: Boolean) {
+    private fun setMonthBarVisible(view: View, visible: Boolean) {
         val calendarView = view.findViewById<MaterialCalendarView>(R.id.calendarView)
         val header = calendarView.findViewById<LinearLayout>(R.id.header)
 
@@ -29,6 +29,7 @@ class HomeFragment : Fragment() {
             header.visibility = View.VISIBLE
         }else{
             header.visibility = View.INVISIBLE
+            header.layoutParams.height = 0
         }
     }
 }
